@@ -59,7 +59,7 @@ PORT=3000
 MONGO_URI=your_mongodb_connection_string
 npm run dev
 
-
+```
 ## API Endpoints
 
 Base URL:
@@ -97,6 +97,33 @@ Response includes:
 Note:
 CSV validation is handled manually (no csv-parser or fast-csv used).
 
+---
+
+## 🧪 Running Tests
+npm test
+
+
+Tests implemented using Jest + Supertest.
+
+## 📬 Postman Collection
+
+Postman collection is included in the repository:
+
+creuto.postman_collection.json
+
+
+You can import it into Postman using:
+Postman → Import → File → Select this JSON file
+
+or
+
+https://api.postman.com/collections/46197914-b4a206b7-a4d1-460a-9190-f8c508bbff0b?access_key=PMAT-01KEQKK100J7TVKXF39492E1DG
+
+
+## 👨‍💻 Author
+
+Anish Anand
+GitHub: https://github.com/Anish05aa
 
 
 

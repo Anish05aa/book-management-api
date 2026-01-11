@@ -1,24 +1,33 @@
 {
 	"info": {
-		"_postman_id": "5aa4a796-c869-4f95-adf7-cb5ce4677fa2",
-		"name": "creuto",
+		"_postman_id": "b4a206b7-a4d1-460a-9190-f8c508bbff0b",
+		"name": "Creuto",
+		"description": "# 🚀 Get started here\n\nThis template guides you through CRUD operations (GET, POST, PUT, DELETE), variables, and tests.\n\n## 🔖 **How to use this template**\n\n#### **Step 1: Send requests**\n\nRESTful APIs allow you to perform CRUD operations using the POST, GET, PUT, and DELETE HTTP methods.\n\nThis collection contains each of these [request](https://learning.postman.com/docs/sending-requests/requests/) types. Open each request and click \"Send\" to see what happens.\n\n#### **Step 2: View responses**\n\nObserve the response tab for status code (200 OK), response time, and size.\n\n#### **Step 3: Send new Body data**\n\nUpdate or add new data in \"Body\" in the POST request. Typically, Body data is also used in PUT request.\n\n```\n{\n    \"name\": \"Add your name in the body\"\n}\n\n ```\n\n#### **Step 4: Update the variable**\n\nVariables enable you to store and reuse values in Postman. We have created a [variable](https://learning.postman.com/docs/sending-requests/variables/) called `base_url` with the sample request [https://postman-api-learner.glitch.me](https://postman-api-learner.glitch.me). Replace it with your API endpoint to customize this collection.\n\n#### **Step 5: Add tests in the \"Scripts\" tab**\n\nAdding tests to your requests can help you confirm that your API is working as expected. You can write test scripts in JavaScript and view the output in the \"Test Results\" tab.\n\n<img src=\"https://content.pstmn.io/fa30ea0a-373d-4545-a668-e7b283cca343/aW1hZ2UucG5n\" alt=\"\" height=\"1530\" width=\"2162\">\n\n## 💪 Pro tips\n\n- Use folders to group related requests and organize the collection.\n    \n- Add more [scripts](https://learning.postman.com/docs/writing-scripts/intro-to-scripts/) to verify if the API works as expected and execute workflows.\n    \n\n## 💡Related templates\n\n[API testing basics](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9a37a28-055b-49cd-8c7e-97494a21eb54&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)  \n[API documentation](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9c28f47-1253-44af-a2f3-20dce4da1f18&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)  \n[Authorization methods](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=31a9a6ed-4cdf-4ced-984c-d12c9aec1c27&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "46197914",
-		"_collection_link": "https://www.postman.com/anishanand-9737661/workspace/creuto/collection/46197914-5aa4a796-c869-4f95-adf7-cb5ce4677fa2?action=share&source=collection_link&creator=46197914"
+		"_collection_link": "https://www.postman.com/anishanand-9737661/workspace/creuto/collection/46197914-b4a206b7-a4d1-460a-9190-f8c508bbff0b?action=share&source=collection_link&creator=46197914"
 	},
 	"item": [
 		{
 			"name": "healthCheck",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n  \"title\": \"Atomic Habits\",\r\n  \"author\": \"James Clear\",\r\n  \"publishedYear\": 2018\r\n}"
-				},
 				"url": {
 					"raw": "http://localhost:3000/",
 					"protocol": "http",
@@ -29,39 +38,89 @@
 					"path": [
 						""
 					]
-				}
+				},
+				"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
 			},
-			"response": []
-		},
-		{
-			"name": "getBooks",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:3000/api/v1/books",
-					"protocol": "http",
-					"host": [
-						"localhost"
+			"response": [
+				{
+					"name": "healthCheck",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "28"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"1c-vZ+stHBXlmmVMKw+jFsbByiDT+c\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 11 Jan 2026 22:27:03 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
 					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"books"
-					]
+					"cookie": [],
+					"body": "{\n    \"message\": \"api is running\"\n}"
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "createBook",
+			"name": "CreateBook",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful PUT request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201, 204]);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"title\": \"Atomic Habits\",\r\n  \"author\": \"James Clear\",\r\n  \"publishedYear\": 2018\r\n}",
+					"raw": "{\n  \"title\": \"Atomic Habits\",\n  \"author\": \"James Clear\",\n  \"publishedYear\": 2018\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -81,9 +140,190 @@
 						"books",
 						""
 					]
-				}
+				},
+				"description": "This is a PUT request and it is used to overwrite an existing piece of data. For instance, after you create an entity with a POST request, you may want to modify that later. You can do that using a PUT request. You typically identify the entity being updated by including an identifier in the URL (eg. `id=1`).\n\nA successful PUT request typically returns a `200 OK`, `201 Created`, or `204 No Content` response code."
 			},
-			"response": []
+			"response": [
+				{
+					"name": "CreateBook",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"Atomic Habits\",\n  \"author\": \"James Clear\",\n  \"publishedYear\": 2018\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/books/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"books",
+								""
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "267"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"10b-7iAbAl04kx+IMYNL4Ygm9KmW8+E\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 11 Jan 2026 22:32:31 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 201,\n    \"data\": {\n        \"title\": \"Atomic Habits\",\n        \"author\": \"James Clear\",\n        \"publishedYear\": 2018,\n        \"_id\": \"696424ffe6f05600f8f64f84\",\n        \"createdAt\": \"2026-01-11T22:32:31.209Z\",\n        \"updatedAt\": \"2026-01-11T22:32:31.209Z\",\n        \"__v\": 0\n    },\n    \"message\": \"book created successfully\",\n    \"success\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "getBooks",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful DELETE request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 202, 204]);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"title\": \"Atomic Habits\",\n  \"author\": \"James Clear\",\n  \"publishedYear\": 2018\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/books/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"books",
+						""
+					]
+				},
+				"description": "This is a DELETE request, and it is used to delete data that was previously created via a POST request. You typically identify the entity being updated by including an identifier in the URL (eg. `id=1`).\n\nA successful DELETE request typically returns a `200 OK`, `202 Accepted`, or `204 No Content` response code."
+			},
+			"response": [
+				{
+					"name": "getBooks",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"Atomic Habits\",\n  \"author\": \"James Clear\",\n  \"publishedYear\": 2018\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/books/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"books",
+								""
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "443"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"1bb-e+aLdXYrwkjaMIdyEbdzJsmcPF0\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 11 Jan 2026 22:33:01 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 201,\n    \"data\": [\n        {\n            \"_id\": \"69640c443612f0b0e4cb6565\",\n            \"title\": \"Think Like a Monk\",\n            \"author\": \"Jay Shetty\",\n            \"publishedYear\": 2020,\n            \"__v\": 0,\n            \"createdAt\": \"2026-01-11T20:47:00.825Z\",\n            \"updatedAt\": \"2026-01-11T20:47:00.825Z\"\n        },\n        {\n            \"_id\": \"696424ffe6f05600f8f64f84\",\n            \"title\": \"Atomic Habits\",\n            \"author\": \"James Clear\",\n            \"publishedYear\": 2018,\n            \"createdAt\": \"2026-01-11T22:32:31.209Z\",\n            \"updatedAt\": \"2026-01-11T22:32:31.209Z\",\n            \"__v\": 0\n        }\n    ],\n    \"message\": \"success\",\n    \"success\": true\n}"
+				}
+			]
 		},
 		{
 			"name": "getBookById",
@@ -95,10 +335,10 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"title\": \"Atomic Habits\",\r\n  \"author\": \"James Clear\",\r\n  \"publishedYear\": 2018\r\n}"
+					"raw": "{\n  \"title\": \"Atomic Habits\",\n  \"author\": \"James Clear\",\n  \"publishedYear\": 2018\n}"
 				},
 				"url": {
-					"raw": "http://localhost:3000/api/v1/books/69640c443612f0b0e4cb6564",
+					"raw": "http://localhost:3000/api/v1/books/696424ffe6f05600f8f64f84",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -108,42 +348,72 @@
 						"api",
 						"v1",
 						"books",
-						"69640c443612f0b0e4cb6564"
+						"696424ffe6f05600f8f64f84"
 					]
 				}
 			},
-			"response": []
-		},
-		{
-			"name": "updateBook",
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n  \"title\": \"Atomic Habits\",\r\n  \"author\": \"Anish Anand\",\r\n  \"publishedYear\": 2026\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+			"response": [
+				{
+					"name": "getBookById",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"Atomic Habits\",\n  \"author\": \"James Clear\",\n  \"publishedYear\": 2018\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/books/696424ffe6f05600f8f64f84",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"books",
+								"696424ffe6f05600f8f64f84"
+							]
 						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:3000/api/v1/books/69640c443612f0b0e4cb6564",
-					"protocol": "http",
-					"host": [
-						"localhost"
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "249"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"f9-+7z2TqCKi8LPs7y44cJp2cQ5tX0\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 11 Jan 2026 22:34:03 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
 					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"books",
-						"69640c443612f0b0e4cb6564"
-					]
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 201,\n    \"data\": {\n        \"_id\": \"696424ffe6f05600f8f64f84\",\n        \"title\": \"Atomic Habits\",\n        \"author\": \"James Clear\",\n        \"publishedYear\": 2018,\n        \"createdAt\": \"2026-01-11T22:32:31.209Z\",\n        \"updatedAt\": \"2026-01-11T22:32:31.209Z\",\n        \"__v\": 0\n    },\n    \"message\": \"success\",\n    \"success\": true\n}"
 				}
-			},
-			"response": []
+			]
 		},
 		{
 			"name": "deleteBook",
@@ -152,10 +422,10 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"title\": \"Atomic Habits\",\r\n  \"author\": \"Anish Anand\",\r\n  \"publishedYear\": 2026\r\n}"
+					"raw": "{\n  \"title\": \"Atomic Habits\",\n  \"author\": \"James Clear\",\n  \"publishedYear\": 2018\n}"
 				},
 				"url": {
-					"raw": "http://localhost:3000/api/v1/books/69640c443612f0b0e4cb6564",
+					"raw": "http://localhost:3000/api/v1/books/696424ffe6f05600f8f64f84",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -165,11 +435,169 @@
 						"api",
 						"v1",
 						"books",
-						"69640c443612f0b0e4cb6564"
+						"696424ffe6f05600f8f64f84"
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "deleteBook",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"Atomic Habits\",\n  \"author\": \"James Clear\",\n  \"publishedYear\": 2018\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/books/696424ffe6f05600f8f64f84",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"books",
+								"696424ffe6f05600f8f64f84"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "70"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"46-CposHYFqE0LZkbLZwFqPO33CHSI\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 11 Jan 2026 22:39:14 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 200,\n    \"data\": null,\n    \"message\": \"Book deleted\",\n    \"success\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "updateBook",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"title\": \"Atomic Habits\",\n  \"author\": \"Anish Anand\",\n  \"publishedYear\": 2026\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/books/696424ffe6f05600f8f64f84",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"books",
+						"696424ffe6f05600f8f64f84"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "updateBook",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"Atomic Habits\",\n  \"author\": \"Anish Anand\",\n  \"publishedYear\": 2026\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/books/696424ffe6f05600f8f64f84",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"books",
+								"696424ffe6f05600f8f64f84"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "83"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"53-JEt1gsq5KQtnGmO3I46WuyZJ4MI\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 11 Jan 2026 22:35:53 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 201,\n    \"data\": null,\n    \"message\": \"book updated successfully\",\n    \"success\": true\n}"
+				}
+			]
 		},
 		{
 			"name": "importBooks",
@@ -201,7 +629,104 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "importBooks",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/anish/Videos/Captures/Documents/web dev/creuto/books.csv.txt"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/books/import",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"books",
+								"import"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "184"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"b8-M3k4ZN6nHN9hYFfMIo57HO+6IMU\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 11 Jan 2026 22:37:38 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 200,\n    \"data\": {\n        \"added\": 2,\n        \"errors\": [\n            {\n                \"row\": 4,\n                \"reason\": \"Author is missing\"\n            },\n            {\n                \"row\": 5,\n                \"reason\": \"Published year must be a number\"\n            }\n        ]\n    },\n    \"message\": \"Import completed\",\n    \"success\": true\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "id",
+			"value": "1"
+		},
+		{
+			"key": "base_url",
+			"value": "https://template.postman-echo.com"
 		}
 	]
 }

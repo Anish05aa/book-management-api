@@ -1,0 +1,5 @@
+title,author,publishedYear
+Atomic Habits,James Clear,2018
+Think Like a Monk,Jay Shetty,2020
+Bad Book,,2022
+Wrong Year,Someone,abcd
